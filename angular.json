@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ydr-blog-web-2",
+            "outputPath": "dist/ydr-blog-web-2/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -30,6 +30,11 @@
             "styles": [
               "src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src",
+                "node_modules/ydr-ng-common/projects/ydr-ng-common/src/lib/sass"]
+            },
             "scripts": []
           },
           "configurations": {
@@ -100,6 +105,78 @@
             ],
             "scripts": []
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/ydr-blog-web-2/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json",
+            "inlineStyleLanguage": "scss",
+            "externalDependencies": [
+              "@nestjs/microservices",
+              "@nestjs/microservices/microservices-module",
+              "@nestjs/websockets",
+              "@nestjs/websockets/socket-module",
+              "cache-manager"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src",
+                "node_modules/ydr-ng-common/projects/ydr-ng-common/src/lib/sass"]
+            },
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": false
+            },
+            "development": {
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "ydr-blog-web-2:build:development",
+              "serverTarget": "ydr-blog-web-2:server:development"
+            },
+            "production": {
+              "browserTarget": "ydr-blog-web-2:build:production",
+              "serverTarget": "ydr-blog-web-2:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ydr-blog-web-2:build:production",
+              "serverTarget": "ydr-blog-web-2:server:production"
+            },
+            "development": {
+              "browserTarget": "ydr-blog-web-2:build:development",
+              "serverTarget": "ydr-blog-web-2:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }

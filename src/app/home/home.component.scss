@@ -1,0 +1,19 @@
+@import 'utils/mixins';
+
+:host {
+    display: block;
+    z-index: 0;
+}
+
+.home__main {
+    padding: 0 1rem 3rem 1rem;
+    margin: -2rem auto;
+    position: relative;
+
+
+  @include min-width(phone) {
+    display: block;
+    text-align: center;
+    max-width: 70%;
+  };
+}

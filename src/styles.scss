@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+@import '_vars.scss';
+
+body {
+    font-family: $logo-font;
+    margin: 0;
+    background-color: $background;
+}
+
+a {
+  color: white;
+  text-decoration: unset;
+}
+
+@mixin max-width($breakpoint) {
+    @each $name, $value in $breakpoints {
+      @if $breakpoint == $name {
+        @media (max-width: $value) {
+          @content;
+        }
+      }
+    }
+  }
+
+@mixin min-width($breakpoint) {
+    @each $name, $value in $breakpoints {
+        @if $breakpoint == $name {
+        @media (min-width: $value) {
+            @content;
+        }
+    }
+}
+}

@@ -1,0 +1,10 @@
+<h2 class="home__section-heading">{{heading}}</h2>
+<div class="home__section-items-row">
+    <post-preview 
+        *ngFor="let item of items" 
+        [url]="item.url"
+        [image]="item.image"
+        [title]="item.title"
+        [description]="item.description"
+    ></post-preview>
+</div>

@@ -3,16 +3,24 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './header.component';
+
+export function getWindowRef() {
+  return (typeof window !== "undefined") ? window : null;
+}
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    { provide: 'WINDOWREF', useFactory: getWindowRef },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

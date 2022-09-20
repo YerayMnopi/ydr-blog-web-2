@@ -1,0 +1,32 @@
+@import 'utils/mixins';
+
+:host {
+    background-color: white;
+    z-index: 2;
+    display: block;
+    border-radius: 4px;
+    padding: 0.35rem;
+    margin-bottom: 1rem;
+    -webkit-box-shadow: 3px 4px 11px -3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 4px 11px -3px rgba(0,0,0,0.75);
+    box-shadow: 3px 4px 11px -3px rgba(0,0,0,0.75);
+}
+
+.home__section-items-row {
+    height: 30vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.home__section-item {
+    flex: 0 0 20%;
+    height: 20vh;
+}
+
+.home__section-heading {
+    position: absolute;
+    margin: 0;
+}

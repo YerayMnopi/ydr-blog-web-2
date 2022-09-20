@@ -1,0 +1,14 @@
+<lib-section 
+    backgroundImage="assets/softay-home-desktop.jpg"
+    subheading="Software and AI projects"
+    imageAuthor="Blake Connally"
+></lib-section>
+<div class="home__main">
+    <app-carrousel 
+        class="home__section"  
+        *ngFor="let section of sections"
+        [heading]="section.heading"
+        [items]="section.items"
+    ></app-carrousel>
+</div>
+

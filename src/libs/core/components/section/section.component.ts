@@ -1,4 +1,5 @@
 import { OnInit, Component, Input, Output, EventEmitter, ElementRef, Renderer2, ChangeDetectionStrategy } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'lib-section',
@@ -32,7 +33,7 @@ export class SectionComponent implements OnInit {
     this.renderer.setStyle(
       this.elementRef.nativeElement,
       'background-image',
-      'url('+ backgroundImage + ')'
+      `url(${environment.mediaUrl}${backgroundImage})`
     );
   }
 

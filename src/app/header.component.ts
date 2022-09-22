@@ -22,6 +22,9 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    if (isPlatformServer(this.platformId)) {
+      return;
+    }
     fromEvent(this.windowRef, 'scroll').pipe(
       auditTime(10),
       map(

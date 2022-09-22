@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,28 +12,28 @@ export class ContentService {
       description: '',
       category: 'front',
       url: '',
-      image: 'assets/stocks-thumbnail.jpg'
+      image: `${environment.mediaUrl}stocks-thumbnail.jpg`
     },
     {
       title: 'Domain driven design with python for Machine learning',
       description: '',
       category: 'front',
       url: '',
-      image: 'assets/python-thumbnail.jpg'
+      image: `${environment.mediaUrl}python-thumbnail.jpg`
     },
     {
       title: 'CQRS: A practical guide',
       description: '',
       category: 'front',
       url: '',
-      image: 'assets/cqrs-thumbnail.jpg'
+      image: `${environment.mediaUrl}cqrs-thumbnail.jpg`
     },
     {
       title: 'CNN for image clasification',
       description: '',
       category: 'front',
       url: '',
-      image: 'assets/image-thumbnail.jpg'
+      image: `${environment.mediaUrl}image-thumbnail.jpg`
     },
   ]
 
@@ -42,21 +43,21 @@ export class ContentService {
       description: '',
       category: 'front',
       url: '',
-      image: 'assets/python-2-thumbnail.jpg'
+      image: `${environment.mediaUrl}python-2-thumbnail.jpg`
     },
     {
       title: 'Machine learning projects',
       description: '',
       category: 'front',
       url: '',
-      image: 'assets/cnn-thumbnail.jpg'
+      image: `${environment.mediaUrl}cnn-thumbnail.jpg`
     },
     {
       title: 'Angular frontend development',
       description: '',
       category: 'front',
       url: '',
-      image: 'assets/javascript-thumbnail.jpg'
+      image: `${environment.mediaUrl}javascript-thumbnail.jpg`
     }
   ]
 
@@ -66,7 +67,7 @@ export class ContentService {
       description: 'A visual guide on a hard topic to let you finally grasp those highly abstract concepts',
       category: 'Software engineering',
       url: 'data-strucutres-and-algorithms',
-      image: 'assets/algorithim-thumbnail.jpg'
+      image: `${environment.mediaUrl}algorithim-thumbnail.jpg`
     }
   ]
 

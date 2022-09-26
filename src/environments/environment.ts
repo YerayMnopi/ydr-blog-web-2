@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  mediaUrl: 'http://media.softay.es/'
+  mediaUrl: 'https://media.softay.es/'
 };
 
 /*
